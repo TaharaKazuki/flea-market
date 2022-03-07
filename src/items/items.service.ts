@@ -1,8 +1,20 @@
 import { Injectable } from '@nestjs/common'
+import { Item } from './item.model'
 
 @Injectable()
 export class ItemsService {
-  findAll() {
-    return 'This is ItemsService'
+  private items: Item[] = []
+
+  findAll(): Item[] {
+    return this.items
+  }
+
+  findeById(id: string): Item {
+    return this.items.find((item) => item.id === id)
+  }
+
+  create(item: Item): Item {
+    this.items.push(item)
+    return item
   }
 }
