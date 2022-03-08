@@ -23,3 +23,13 @@ export class ItemRepository extends Repository<Item> {
     return item
   }
 }
+
+const MOBILE = {
+  IOS: 'ios',
+  Android: 'android'
+} as const
+
+type MOBILE_OS = typeof MOBILE[keyof typeof MOBILE]
+
+const hoge: MOBILE_OS = MOBILE.Android
+console.info(hoge)

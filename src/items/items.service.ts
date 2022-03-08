@@ -10,8 +10,8 @@ export class ItemsService {
 
   private items: Item[] = []
 
-  findAll(): Item[] {
-    return this.items
+  async findAll(): Promise<Item[]> {
+    return await this.itemRepository.find()
   }
 
   findeById(id: string): Item {
@@ -26,11 +26,11 @@ export class ItemsService {
     return await this.itemRepository.createItem(createItemDto)
   }
 
-  updateStatus(id: string): Item {
-    const item = this.findeById(id)
-    item.status = ItemStatus.SOLD_OUT
-    return item
-  }
+  // updateStatus(id: string): Item {
+  //   const item = this.findeById(id)
+  //   item.status = ItemStatus.SOLD_OUT
+  //   return item
+  // }
 
   delete(id: string): void {
     this.items = this.items.filter((item) => item.id !== id)
