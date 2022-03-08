@@ -22,8 +22,8 @@ export class ItemsController {
   }
 
   @Get(':id')
-  findById(@Param('id', ParseUUIDPipe) id: string): Item {
-    return this.itemsService.findeById(id)
+  async findById(@Param('id', ParseUUIDPipe) id: string): Promise<Item> {
+    return await this.itemsService.findeById(id)
   }
 
   @Post()
@@ -31,13 +31,13 @@ export class ItemsController {
     return await this.itemsService.create(createItemDto)
   }
 
-  // @Patch(':id')
-  // updateStatus(@Param('id', ParseUUIDPipe) id: string): Item {
-  //   return this.itemsService.updateStatus(id)
-  // }
+  @Patch(':id')
+  async updateStatus(@Param('id', ParseUUIDPipe) id: string): Promise<Item> {
+    return await this.itemsService.updateStatus(id)
+  }
 
   @Delete(':id')
-  delete(@Param('id', ParseUUIDPipe) id: string) {
-    return this.itemsService.delete(id)
+  async delete(@Param('id', ParseUUIDPipe) id: string): Promise<void> {
+    return await this.itemsService.delete(id)
   }
 }
