@@ -17,6 +17,7 @@ export class ItemRepository extends Repository<Item> {
       updatedAt: new Date().toISOString()
     })
 
+    console.info('通過')
     await this.save(item)
 
     return item
