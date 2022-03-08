@@ -36,6 +36,6 @@ export class ItemsService {
   }
 
   async delete(id: string): Promise<void> {
-    await this.itemRepository.delete(id)
+    await this.itemRepository.delete({ id })
   }
 }
