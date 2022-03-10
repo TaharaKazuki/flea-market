@@ -6,7 +6,6 @@ import * as bcrypt from 'bcrypt'
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
   async createUser(createUserDto: CreateUserDto): Promise<User> {
-    console.info(process.env.SECRET_KEY)
     const { username, password, status } = createUserDto
     const salt = await bcrypt.genSalt()
     const hashPassword = await bcrypt.hash(password, salt)
