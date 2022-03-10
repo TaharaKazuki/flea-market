@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { AuthModule } from './auth/auth.module'
 
 @Module({
-  imports: [ItemsModule, TypeOrmModule.forRoot(), AuthModule],
+  imports: [ItemsModule, AuthModule, TypeOrmModule.forRoot()],
   controllers: [],
   providers: []
 })
