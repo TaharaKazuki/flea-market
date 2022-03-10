@@ -17,6 +17,7 @@ export class AuthController {
   async signin(
     @Body() credentialsDto: CredentialsDto
   ): Promise<{ accessToken: string }> {
+    console.info('通過')
     return await this.authService.signIn(credentialsDto)
   }
 }
